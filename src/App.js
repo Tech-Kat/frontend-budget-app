@@ -6,9 +6,26 @@ import New from "./Pages/New";
 import Index from "./Pages/Index";
 import Home from "./Pages/Home";
 import Edit from "./Pages/Edit";
-import FourOFour from "./Pages/FourOFour";
+import FourOFour from "./Pages/Four0Four";
+// import { useEffect, useState } from "react";
+// import axios from "axios";
 
+// const API = process.env.REACT_APP_API_URL
 function App() {
+
+//   const [budget, setBudget] = useState([]);
+
+
+//   useEffect(() => {
+//     axios
+//     .get(`${API}/budget`)
+//     .then((res) => setBudget(res.data))
+//     .catch((e) => console.error("catch", e));
+//   }, []);
+  
+
+// console.log(budget)
+
   return (
     <div className="App">
       <Router>
