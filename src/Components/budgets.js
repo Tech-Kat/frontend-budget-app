@@ -7,6 +7,7 @@ console.log(API);
 
 function Budgets() {
   const [budgets, setBudgets] = useState([]);
+  const [sorts, setSorts] = useState(false);
 
   useEffect(() => {
     axios
@@ -15,7 +16,7 @@ function Budgets() {
       .catch((e) => console.error("catch", e));
   }, []);
 
-  console.log(budgets)
+  console.log(budgets);
 
   return (
     <div className="budgets">
@@ -23,16 +24,34 @@ function Budgets() {
         <table>
           <thead>
             <tr>
-              <th>Mistakes</th>
-              <th>Captain Name</th>
-              <th>See this log</th>
+              <th style={{ textDecoration: "underline" }}>
+                <strong>Date</strong>
+              </th>
+              <th style={{ textDecoration: "underline" }}>
+                <strong>To</strong>
+              </th>
+              <th style={{ textDecoration: "underline" }}>
+                <strong>Amount</strong>
+              </th>
+              <th
+                style={{ textDecoration: "underline" }}
+                onClick={() => setSorts(!sorts)}
+              >
+                <strong>Category</strong>
+              </th>
             </tr>
           </thead>
           <tbody>
-            {budgets.map((budget, index) => {
-            //   console.log(budget)
-              return <Budget key={index} budget={budget} index={index} />;
-            })}
+            {sorts
+              ? budgets
+                  .sort((a, b) => (a.category > b.category ? 1 : -1))
+                  .map((budget, index) => {
+                    return <Budget key={index} budget={budget} index={index} />;
+                  })
+              : budgets.map((budget, index) => {
+                  //   console.log(budget)
+                  return <Budget key={index} budget={budget} index={index} />;
+                })}
           </tbody>
         </table>
       </section>

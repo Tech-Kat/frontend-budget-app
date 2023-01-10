@@ -3,7 +3,7 @@ import BudgetDetails from '../Components/BudgetDetails'
 
 const Show = () => {
   return (
-    <div>
+    <div className="centered">
         <h1>Show</h1>
       <BudgetDetails/>
     </div>

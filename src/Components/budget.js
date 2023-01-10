@@ -2,23 +2,25 @@ import React from 'react'
 import { Link } from 'react-router-dom';
 
 const Budget = ({ budget, index }) => {
+
+
+
     return (
       <tr className="Log">
         <td>
-          {budget.amount ? (
-            <span>🦾</span>
-          ) : (
-            <span>&nbsp; &nbsp; &nbsp;</span>
-          )}
+          {budget.date}
         </td>
   
         <td>
           <Link to={`/budget/${index}`} target="_blank" rel="noreferrer">
-            {budget.item_name}
+            {budget.to}
           </Link>
         </td>
+        <td style={{ color: budget.amount < 0 ? "red" : "green" }}>
+        {budget.amount}
+        </td>
         <td>
-          <Link to={`/budget/${index}`}>{budget.category}</Link>
+          {budget.category}
         </td>
       </tr>
     );

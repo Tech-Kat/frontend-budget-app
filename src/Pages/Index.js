@@ -3,7 +3,7 @@ import Budgets from '../Components/Budgets'
 
 const Index = () => {
   return (
-    <div>
+    <div className="centered">
         <h2>Budget Index</h2>
       <Budgets/>
     </div>

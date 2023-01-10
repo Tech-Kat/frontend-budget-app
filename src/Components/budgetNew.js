@@ -1,43 +1,78 @@
-import React from 'react'
+import axios from "axios";
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
+
+const API = process.env.REACT_APP_API_URL;
 
 const BudgetNew = () => {
-
   const navigate = useNavigate();
-  const [log, setlog] = useState({
-    captainName: "",
-    title: "",
-    post: "",
-    daysSinceLastCrisis: "",
-    mistakesWereMadeToday: false,
+
+  const [newbud, setNewBud] = useState({
+    item_name: "",
+    amount: "",
+    date: "",
+    category: "",
   });
 
   const handleTextChange = (event) => {
-    setlog({ ...log, [event.target.id]: event.target.value });
+    setNewBud({ ...newbud, [event.target.id]: event.target.value });
   };
 
-//   const handleCheckboxChange = () => {
-//     setlog({ ...log, mistakesWereMadeToday: !log.mistakesWereMadeToday });
-//   };
 
-  const addlog = () => {
-    axios
-      .post(`${API}/budget`, log)
-      .then(() => {
-        navigate(`/budget`);
-      })
-      .catch((e) => console.error("catch", e));
-  };
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    addlog();
+    axios
+      .post(`${API}/budget`, newbud)
+      .then((response) => {
+        setNewBud(response.data);
+        navigate(`/budget`);
+      })
+      .catch((c) => console.warn("catch", c));
   };
-
   return (
-    <div>
-      
-    </div>
-  )
-}
+    <div className="New">
+      <form onSubmit={handleSubmit}>
+        <label htmlFor="item_name">Item Name:</label>
+        <input
+          id="item_name"
+          value={newbud.item_name}
+          type="text"
+          onChange={handleTextChange}
+          placeholder="Name of item"
+          required
+        />
+        <label htmlFor="amount">Amount</label>
+        <input
+          id="amount"
+          type="number"
+          value={newbud.amount}
+          onChange={handleTextChange}
+        />
+        <label htmlFor="date">Date</label>
+        <input
+          id="date"
+          type="text"
+          value={newbud.date}
+          onChange={handleTextChange}
+          required
+        />
+        <label htmlFor="category">Category</label>
+        <input
+          id="category"
+          value={newbud.category}
+          type="text"
+          onChange={handleTextChange}
+        />
 
-export default BudgetNew
+    <br />
+        <input type="submit" />
+      </form>
+      <Link to={`/budget`}>
+        <button>Back</button>
+      </Link>
+    </div>
+  );
+};
+export default BudgetNew;

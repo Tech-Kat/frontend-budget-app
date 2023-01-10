@@ -1,9 +1,10 @@
-import React from 'react'
+import BudgetNew from "../Components/BudgetNew.js";
 
 const New = () => {
   return (
-    <div>
-      
+    <div className="centered">
+      <h2>New</h2>
+      <BudgetNew/>
     </div>
   )
 }
