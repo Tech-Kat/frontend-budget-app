@@ -4,7 +4,6 @@ import { Link, useParams, useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
 const API = process.env.REACT_APP_API_URL;
 const BudgetDetails = () => {
-  
   const [details, setDetails] = useState([]);
   let { index } = useParams();
   let navigate = useNavigate();
@@ -30,13 +29,14 @@ const BudgetDetails = () => {
   };
   return (
     <article>
-      <h1>{details.item_name}</h1>
-      <span>{details.amount}</span>
-      <span>
-        {" "}
-        {/* Date: {details.date[0]} {details.date[1]}" */}
-      </span>
-      <h6>{details.category}</h6>
+      <div className="display-show">
+        <h1> Item Name: {details.item_name}</h1>
+        <h1> Amount: ${details.amount}</h1>
+        <h1>Date: {details.date}</h1>
+        <h1>To: {details.to}</h1>
+        <h1>Category: {details.category}</h1>
+      </div>
+
       <div className="showNavigation">
         <div>
           {" "}

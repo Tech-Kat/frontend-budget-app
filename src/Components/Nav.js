@@ -11,11 +11,14 @@ const Nav = () => {
   useEffect(() => {
     axios
       .get(`${API}/budget`)
-      .then((response) => {setBudgets(response.data);
+      .then((response) => {
+        setBudgets(response.data);
 
-      setTotal(response.data
-        .map(({amount}) => Number(amount))
-      .reduce((a,b) => a+b))
+        setTotal(
+          response.data
+            .map(({ amount }) => Number(amount))
+            .reduce((a, b) => a + b)
+        );
       })
       .catch((e) => console.error("catch", e));
   }, [budgets]);
@@ -31,9 +34,23 @@ const Nav = () => {
       <button>
         <Link to="/budget/new">Create New Budget</Link>
       </button>
-      <br/>
+      <br />
       <span>
-       <h2 className="total">A Total Of ${total.toLocaleString()} is Currently Available</h2> 
+        <h1>A Total Of</h1>
+        <h2
+          className="total"
+          style={{
+            color:
+              total < 0
+                ? "red"
+                : total > 1000
+                ? "green"
+                : "black",
+          }}
+        >
+          ${total.toLocaleString()}
+        </h2>
+        <h1>Is Currently Available</h1>
       </span>
     </nav>
   );

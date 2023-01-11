@@ -27,6 +27,14 @@ a {
   color:black;
 }
 
+.display-show{
+  border: 5px solid black ;
+  box-sizing: border-box;
+  margin-left: 650px;
+  width: 300px ;
+  margin-bottom: 6px;
+}
+
 .total {
   color: black;
 }

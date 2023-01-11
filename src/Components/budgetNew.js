@@ -56,6 +56,16 @@ const BudgetNew = () => {
           type="text"
           value={newbud.date}
           onChange={handleTextChange}
+          placeholder="mm/dd/yyyy"
+          required
+        />
+        <label htmlFor="to">To:</label>
+        <input
+          id="to"
+          value={newbud.to}
+          type="text"
+          onChange={handleTextChange}
+          placeholder="Payment made to ?"
           required
         />
         <label htmlFor="category">Category</label>

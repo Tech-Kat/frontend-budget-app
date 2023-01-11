@@ -65,29 +65,32 @@ function BudgetEdit() {
           value={edit.amount}
           onChange={handleTextChange}
         />
-        {/* <label htmlFor="post">Post</label>
-        <textarea
-          id="post"
+        <label htmlFor="date">Date</label>
+        <input
+          id="date"
           type="text"
-          value={log.post}
+          value={edit.date}
           onChange={handleTextChange}
+          placeholder="mm/dd/yyyy"
           required
-        /> */}
-        {/* <label htmlFor="daysSinceLastCrisis">Days Since Last Crisis</label>
-        <input
-          id="daysSinceLastCrisis"
-          value={log.daysSinceLastCrisis}
-          type="number"
-          onChange={handleTextChange}
-          placeholder="ex: 0"
         />
-        <label htmlFor="mistakesWereMadeToday">Mistakes were made today</label>
+        <label htmlFor="to">To:</label>
         <input
-          id="mistakesWereMadeToday"
-          type="checkbox"
-          onChange={handleCheckboxChange}
-          checked={log.mistakesWereMadeToday}
-        ></input> */}
+          id="to"
+          value={edit.to}
+          type="text"
+          onChange={handleTextChange}
+          placeholder="Payment made to ?"
+          required
+        />
+        <label htmlFor="category">Category</label>
+        <input
+          id="category"
+          value={edit.category}
+          type="text"
+          onChange={handleTextChange}
+        />
+
         <br />
         <input type="submit" />
       </form>

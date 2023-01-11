@@ -1,5 +1,5 @@
 import React from 'react'
-import BudgetDetails from '../Components/BudgetDetails'
+import BudgetDetails from '../Components/BudgetDetails.js'
 
 const Show = () => {
   return (
