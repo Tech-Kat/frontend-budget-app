@@ -1,4 +1,4 @@
-import Budget from "./Budget";
+import Budget from "./Budget.js";
 import axios from "axios";
 import { useState, useEffect } from "react";
 const API = process.env.REACT_APP_API_URL;
