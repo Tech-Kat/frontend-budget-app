@@ -1,5 +1,5 @@
 import React from 'react'
-import Budgets from '../Components/Budgets'
+import Budgets from '../Components/Budgets.js'
 
 const Index = () => {
   return (

@@ -5,9 +5,9 @@ const New = () => {
   return (
     <div className="centered">
       <h2>New</h2>
-      <BudgetNew/>
+      <BudgetNew />
     </div>
-  )
-}
+  );
+};
 
 export default New;

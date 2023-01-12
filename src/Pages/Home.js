@@ -1,5 +1,5 @@
 import React from "react";
-import Money from "../Components/Money";
+import Money from "../Components/Money.js";
 
 const Home = () => {
   return (
