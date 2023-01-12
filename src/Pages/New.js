@@ -1,4 +1,5 @@
 import BudgetNew from "../Components/BudgetNew.js";
+import React from "react";
 
 const New = () => {
   return (
