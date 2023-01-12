@@ -1,5 +1,5 @@
 import React from "react";
-import BudgetEdit from "../Components/BudgetEdit.js";
+import BudgetEdit from "../Components/BudgetEdit";
 
 const Edit = () => {
   return (
